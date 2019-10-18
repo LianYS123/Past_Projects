@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>在构造函数中定义方法</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function People(name,age){
+			this.name = name;
+			this.age = age;
+			this.sayhello = function(){
+				console.log("大家好，我叫"+this.name+",我今年"+age+"岁");
+			}
+		}
+		var xiaoming = new People("小明",12);
+		var xiaohong = new People("小红",20);
+		xiaoming.sayhello()
+		xiaohong.sayhello()
+		//这个函数可以执行，但他是定义在每个实例对象身上的，然而函数本身是用来复用的。
+		console.log(xiaoming.sayhello === xiaohong.sayhello);//返回false
+		
+		People.prototype = {
+			"teacher":"考拉",
+			"zhishang":180
+		}
+		console.log(xiaohong.teacher);//undefined: 小红定义时还没有prototype
+		var xiaogang = new People("小刚",30);
+		console.log(xiaogang.teacher);//输出考拉，当自己身上没有teacher这个属性是，会沿着原型链去找，如果自己身上有，就不会找。
+		console.log(xiaogang.__proto__ === People.prototype);//输出true，实例对象的__proto__属性完全等于构造函数的prototype属性
+	</script>
+</html>

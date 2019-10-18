@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>构造函数</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function People(){
+			this.name = "lian";
+			this.age = "100";
+		}
+		var obj = new People();//用new运算符调用一个函数。
+		alert(obj.name);
+		/*
+		 用new调用一个函数时四步
+			1 函数内部创建一个空对象
+			2 将自己的上下文设置为这个对象
+			3执行所有语句
+			4将自己的上下文返回（即使没有return语句）
+			
+		JS中没有类的概念，只有构造函数，可以认为People这样的函数是一个类
+		为了提醒别人这是一个构造函数，这样的函数的首字母必须大写
+		* */
+		
+		//如果不用new 直接调用构造函数，则属性会被设置成window对象的属性，即添加了三个全局变量。
+		People();
+		alert(age);//输出一个全局变量name
+		
+		//构造函数是一个函数调用方式，用new调用一个函数是构造函数
+	</script>
+</html>

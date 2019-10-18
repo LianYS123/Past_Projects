@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>snow</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			canvas{
+				background: black;
+				border: 1px solid;
+				position: fixed;
+				z-index: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="500" height="300"></canvas>
+	</body>
+	<script type="text/javascript" src="../js/jquery-2.1.0.js" ></script>
+	<script type="text/javascript" src="../js/inheritance.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+		$(function(){
+			
+			var c = document.getElementById("mycanvas");
+			c.width = window.innerWidth;
+			c.height = window.innerHeight;
+			var cxt = c.getContext("2d");
+			
+			actorArr=[];
+			var Actor = Class.extend({
+				init:function(){
+					actorArr.push(this);
+				},
+				render:function(){
+					throw new Error("请重写render函数！");
+				},
+				update:function(){
+					//update必须留空
+				}
+			})
+			
+			
+			var Snow = Actor.extend({
+				init:function(x,y,r,speed){
+					this.x=x;
+					this.y=y;
+					this.r=r;
+					this.speed=speed;
+					this._super();
+				},
+				render:function(){
+					cxt.beginPath();
+					cxt.strokeStyle='white';
+					cxt.fillStyle='white';
+					cxt.arc(this.x,this.y,this.r,0,Math.PI*2,true);
+					cxt.fill();
+					cxt.stroke();						
+				},
+				update:function(){
+					this.y += this.speed;
+				}
+			})
+			
+			for(var i = 0; i < 20; i++){
+				var x = Math.floor(Math.random() * c.width);
+				var r = Math.floor(Math.random() * 40) + 10;
+				var speed = Math.floor(Math.random() * 5) + 1;
+				var snow = new Snow(x,0,r,speed);
+			}
+			
+			
+			setInterval(function(){
+				cxt.clearRect(0,0,window.innerWidth,window.innerHeight);
+				
+				for(var i = 0; i < actorArr.length; i++){
+					actorArr[i].render();
+					actorArr[i].update();
+					console.log(actorArr[i].y);
+					if(actorArr[i].y>window.innerHeight){
+						actorArr[i].y=0;
+					}
+				}
+			},10);
+		});	
+		
+		}
+
+	</script>
+</html>

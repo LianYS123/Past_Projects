@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>监听属性</title>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="test">
+			<p>
+				{{count}}
+			</p>
+			<button v-on:click="counter">click me</button>
+		</div>
+		<script type="text/javascript">
+			var vm=new Vue({
+				el:"#test",
+				data:{
+					count:0
+				},
+				methods:{
+					counter:function(){
+						this.count++
+					}
+				}
+			});
+			vm.$watch("count",function(nval,oval){//这是一个监听器，第一个参数为新值，第二个为旧值
+				alert("计数器值的变化："+oval+" 变为   "+nval);
+			})
+		</script>
+	</body>
+</html>

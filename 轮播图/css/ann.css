@@ -1,0 +1,24 @@
+
+.pchange{
+	transition: left 1s linear;
+}
+.annrc{
+	animation: rc 10s linear infinite;
+}
+@keyframes rc{
+	0%:{
+		left: 0;
+	}
+	25%:{
+		left: -800px;
+	}
+	50%:{
+		left: -1600px;
+	}
+	75%:{
+		left: -3200px;
+	}
+	100%{
+		left: -4000px;
+	}
+}

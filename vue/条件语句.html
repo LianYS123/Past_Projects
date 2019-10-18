@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>条件语句</title>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="test">
+			<p>{{message}}</p>
+			<p v-if="type === 'A'">A</p>
+			<p v-else-if="type === 'B'">B</p>
+			<p v-else-if="type === 'C'">C</p>
+			<p v-else>其他</p>
+			
+			<p v-if="false">test</p>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el:'#test',//这是一个选择器
+				data:{
+					message:'hello',
+					seen:true,
+					ok:true,
+					type:'C'
+				},
+				methods:{
+					fun1:function(){
+						alert("hello");
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

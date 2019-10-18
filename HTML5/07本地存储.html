@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>本地存储</title>
+	</head>
+	<body>
+		<input type="button" id="btn1" value="按我存储内容" />
+		<input type="button" id="btn2" value="按我读取内容" />
+	</body>
+	<script type="text/javascript">
+		var btn1 = document.getElementById("btn1");
+		var btn2 = document.getElementById("btn2");
+		btn1.onclick = function(){
+			localStorage.setItem("userName","Lian");//本地存储内容
+		}
+		btn2.onclick = function(){
+			var username = localStorage.getItem("userName");//读取本地内容
+			alert(username)
+		}
+		//localStorage本地存储会自动为每个IP地址创建一个表格，所有页面都能访问存储内容，除非清楚数据否则不会清空，不能跨浏览器访问。
+		//sessionStorage浏览器关闭就会丢失数据
+	</script>
+</html>

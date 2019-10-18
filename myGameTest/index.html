@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>game</title>
+		<style type="text/css">
+			#mycanvas{
+				border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="300" height="500"></canvas>
+		<p><button id="btn1">简单</button></p>
+		<p><button id="btn2">普通</button></p>
+		<p><button id="btn3">困难</button></p>
+		<p><button id="btn4">超级难</button></p>
+	</body>
+	<script type="text/javascript" src="js/inheritance.js"></script>
+	<script type="text/javascript" src="js/underscore.js"></script>
+	<script type="text/javascript" src="js/Game.js"></script>
+	<script type="text/javascript" src="js/SceneManager.js"></script>
+	<script type="text/javascript" src="js/Actor.js"></script>
+	<script type="text/javascript">
+		var c = document.getElementById("mycanvas");
+		var game = new Game();
+		var background = new Background();
+		
+//		var pipe = new Pipe();
+		
+		var scene = new SceneManager();
+		var land = new Land();
+		var bird = new Bird();
+		game.start();
+		
+		var btn1 = document.getElementById("btn1");
+		var btn2 = document.getElementById("btn2");
+		var btn3 = document.getElementById("btn3");
+		var btn4 = document.getElementById("btn4");
+		
+		btn1.onclick = function(){
+			console.log("简单")
+			bird.setDegree(0.5,0.4,16);//设置难度参数，第一个参数为下落速度，第二个为上升速度，第三个为上升帧数
+		}
+		btn2.onclick = function(){
+			console.log("普通")
+			bird.setDegree(0.5,0.5,17);//设置难度参数，第一个参数为下落速度，第二个为上升速度，第三个为上升帧数
+		}
+		btn3.onclick = function(){
+			console.log("困难")
+			bird.setDegree(0.7,0.6,18);//设置难度参数，第一个参数为下落速度，第二个为上升速度，第三个为上升帧数
+		}
+		btn4.onclick = function(){
+			console.log("变态")
+			bird.setDegree(1.1,1.1,14);//设置难度参数，第一个参数为下落速度，第二个为上升速度，第三个为上升帧数
+		}
+	</script>
+</html>

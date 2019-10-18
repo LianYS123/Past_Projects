@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>本地存储的使用</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//本地存储中只能存储字符串
+		var data = {"a":1,"b":2};
+		var dataStr = JSON.stringify(data);//将json转为字符串存储
+		localStorage.setItem("data",dataStr);//本地存储字符串
+		var redataStr = localStorage.getItem("data");//获取到的也是字符串
+		var redata = JSON.parse(redataStr);//将获取的字符串转为对象
+		alert(redata.a);
+		//如果要追加数据，先读取数据，再存储覆盖
+	</script>
+</html>

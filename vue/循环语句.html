@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>循环语句</title>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="test">
+			<button v-on:click="fun">test</button>
+			<p v-for="name in names"><!--只有一个参数，值-->
+				{{name}}
+			</p>
+			<p v-for="(value,key,index) in user"><!--第一个参数为值，第二个参数为键名，第三个参数为索引-->
+				{{index}}:{{key}}:{{value}}
+			</p>
+			
+			<!--迭代整数-->
+			<ul>
+				<li v-for="n in 10"><!--循环是会复制自己的，这里产生多个li-->
+					{{n}}
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el:'#test',
+				data:{
+					names:['Marry','Bob','Alice'],
+					user:{
+						name:'lian',
+						sex:'male'					}
+				},
+				methods:{
+					fun:function(){
+						alert("hello");
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

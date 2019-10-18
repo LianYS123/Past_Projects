@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" id="fm1">
+		<p>
+			数字：
+			<input type="number" min="" max=""/>
+		</p>
+		
+		<p>
+			颜色：
+			<input type="color" />
+		</p>
+		
+		<p>
+			日期：
+			<input type="date" />
+		</p>
+		
+		<p>
+			星期：
+			<input type="week" />
+		</p>
+		
+		<p>
+			日期时间：
+			<input type="datetime" />
+		</p>
+		
+		<p>
+			时间：
+			<input type="time" />
+		</p>
+		
+		<p>
+			邮箱：
+			<input type="email" />
+		</p>
+		
+		<p>
+			文件：
+			<input type="file" />
+		</p>
+		
+		<p>
+			拖拽条：
+			<input type="range" id="range"/><!--拖拽条，经常辅以js显示数字-->
+			<span id="shuzi"></span>
+		</p>
+		
+		<p>
+			查询：
+			<input type="search" />
+		</p>
+		
+		<p>
+			电话：
+			<input type="tel" />
+		</p>
+		
+		<p>
+			网址：
+			<input type="url" />
+		</p>
+		
+		<p>
+			必填：
+			<input type="text" required />
+		</p>
+		
+		<p>
+			自动获得焦点：
+			<input type="text" autofocus />
+		</p>
+		
+		<p>
+			<input type="text" placeholder="啦啦啦" />
+		</p>
+		<p>
+			只读：
+			<input type="text" value="aaa" readonly/>
+		</p>
+		<p>
+			不可用：
+			<input type="text" value="aaa" disabled/>
+		</p>
+		<p>
+			提示清单
+			<input type="text" list="tip"/><!--list=[清单id]-->
+			<datalist id="tip">
+				<option value="html">超文本标记语言</option>
+				<option value="css">层叠样式表</option>
+				<option value="javascript">编程</option>
+			</datalist>
+		</p>
+		<p>
+			正则表达式
+			<input type="text" pattern="" /><!--了解一下，不好用-->
+		</p>
+		<p>
+			<input type="submit" />
+		</p>
+		</form>
+		
+		<p>
+			<input type="text" form="fm1"/>
+		</p>
+		
+	</body>
+	<script type="text/javascript">
+		var shuzi = document.getElementById("shuzi");
+		var ran = document.getElementById("range");
+		ran.oninput = function(){
+			shuzi.innerHTML = ran.value;
+		}
+	</script>
+</html>

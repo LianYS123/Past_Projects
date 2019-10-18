@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>My first canvas demo</title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="500" height="300"></canvas>
+	</body>
+	<script type="text/javascript" src="../js/jquery-2.1.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var canvas = $("#mycanvas").get(0);//获得元素
+			var context = canvas.getContext("2d");//获得上下文，都是用这个操作画布的。
+			
+			//矩形
+			context.fillStyle="red";//填充色为红色。。。
+			context.fillRect(20,20,100,100);//创建一个矩形
+			
+			//划线
+			context.strokeStyle='blue';
+			context.moveTo(150,150);
+			context.lineTo(200,200);
+			context.lineTo(100,200);
+			context.stroke();//划线必须要这个方法加载到页面
+			
+			//圆形
+			context.fillStyle="aqua";
+			context.beginPath();
+			context.arc(70,18,15,0,Math.PI*2,true);
+			context.closePath();
+			context.fill();
+		});
+	</script>
+</html>

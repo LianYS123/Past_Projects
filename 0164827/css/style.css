@@ -1,0 +1,139 @@
+
+
+/*header*/
+.header{
+	position: relative;
+	height: 120px;
+	text-align: center;
+	background: rgb(239,239,244);
+	border-bottom:1px solid gray;
+}
+.header>.face{
+	position: absolute;
+	left: 15px;
+	top: 20px;
+	font-size: 80px;
+	color: gray;
+}
+.header>.title{
+	line-height: 120px;
+	font-size: 50px;
+}
+/*轮播图*/
+.slideShow{
+	position: relative;
+	height: 480px;
+	background-image: url(../img/book-background.png);
+	background-size: 100% 100%;
+	border: 1px solid darkgray;
+}
+.slideShow>.dots{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	width: 350px;
+	height: 60px;
+}
+.slideShow>.dots>.dot{
+	width: 35px;
+	height: 35px;
+	margin: 0 20px;
+	border-radius: 50%;
+	background-color: white;
+}
+.slideShow>.dots>.dot:nth-child(2){
+	background: deepskyblue;
+}
+.slideShow>.dots>.dot:hover{
+	background: deepskyblue;
+}
+
+/*墙*/			
+.wall20{
+	height: 20px;
+}
+/*item*/
+.items{
+	
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.items>.item{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 420px;
+	height: 300px;
+	margin: 10px;
+	padding: 20px;
+	border-radius: 10%;
+	background-color: rgb(112,179,233);
+}
+.items>.item>.content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 300px;
+	height: 260px;
+	
+}
+.items>.item>.content>.itemImage{
+	text-align: center;
+	width: 180px;
+	height: 180px;
+}
+.items>.item>.content>.itemImage>img{
+	width: 180px;
+	height: 180px;
+}
+.items>.item>.content>.itemImage>span{
+	line-height: 180px;
+	color: white;
+	font-size: 120px;
+}
+.items>.item>.content>.itemName{
+	width: 180px;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	font-size: 40px;
+	color: white;
+}
+.placeholder{
+	height: 200px;
+}
+/*底部导航*/
+.nav{
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 160px;
+	background: whitesmoke;
+	border-top: 1px solid gainsboro;
+}
+.option{
+	width: 60px;
+	height: 60px;
+	margin: 20px 100px;
+	text-align: center;
+	
+}
+.option img{
+	width: 60px;
+	height: 60px;
+}
+.option span{
+	font-size: 60px;
+	line-height: 60px;
+}

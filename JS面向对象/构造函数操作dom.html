@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>构造函数操作DOM</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function Star(name,age,sex,avatarUrl){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			this.avatarUrl = avatarUrl;
+			this.img = document.createElement("img");
+			this.img.src = avatarUrl;
+			document.body.appendChild(this.img);
+		}
+		Star.prototype.zisha = function(){
+			document.body.removeChild(this.img);
+		}
+		var lian = new Star("lian",30,"nan","img/ms.jpg")
+	</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue动画</title>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<style type="text/css">
+			.myAnimate{
+				display: flex;
+				position:absolute;
+				left: 100px;
+				bottom: 100px;
+				width: 100%;
+				height: 100px;
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="test">
+			<p><button v-on:click="show=!show">animation</button></p>
+			
+			<!--
+				我们可以通过以下特性来自定义过渡类名：
+				enter-class
+				enter-active-class
+				enter-to-class (2.1.8+)
+				leave-class
+				leave-active-class
+				leave-to-class (2.1.8+)
+			-->
+			<!--可以通过:duration设置是动画进入或离开的时间 {enter:400,leave:800}-->
+			<transition 
+				enter-active-class='animated slideInUp' 
+				leave-active-class='animated rotateOutDownLeft'
+				:duration="{leave:900}">
+				<div v-if="show" class="myAnimate">hello</div>
+			</transition>
+			
+			<!--
+				可以在属性中声明 JavaScript 钩子
+			-->
+			<p><button v-on:click="show2=!show2">animation</button></p>
+			<transition
+			  v-on:before-enter="beforeEnter"
+			  v-on:enter="enter"
+			  v-on:after-enter="afterEnter"
+			  v-on:enter-cancelled="enterCancelled"
+			
+			  v-on:before-leave="beforeLeave"
+			  v-on:leave="leave"
+			  v-on:after-leave="afterLeave"
+			  v-on:leave-cancelled="leaveCancelled"
+			  
+			  enter-active-class='animated slideInUp' 
+			  leave-active-class='animated rotateOutDownLeft'
+			>
+			
+				<p v-if="show2">hello</p>
+			</transition>
+			
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#test",
+				data:{
+					show:true,
+					show2:true
+				},
+				methods:{
+					beforeEnter:function(){
+						console.log("beforeEnter");
+					},
+					enter:function(){
+						console.log("enter");
+					},
+					afterEnter:function(){
+						console.log("afterEnter");
+					},
+					enterCancelled:function(){
+						console.log("enterCancelled");
+					},
+					beforeLeave:function(){
+						console.log("beforeLeave");
+					},
+					leave:function(){
+						console.log("leave");
+					},
+					afterLeave:function(){
+						console.log("afterLeave");
+					},
+					leaveCancelled:function(){
+						console.log("leaveCancelled");
+					},
+				}
+			})
+		</script>
+	</body>
+</html>

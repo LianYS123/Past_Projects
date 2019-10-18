@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>我的第一个Vue</title>
+		<script type="text/javascript" src="js/vue.min.js" ></script>
+		
+	</head>
+	<body>
+		<div id="test">
+			<ol>
+				<li>username:{{username}}</li>
+				<li>password:{{password}}</li>
+				<li>{{testFun1()}}</li>
+				<li>{{testFun2()}}</li>
+			</ol>
+		</div>
+		
+		<!--注意：这个项目的自己写的JavaScript代码放在这里，放head里没用-->
+		<script type="text/javascript">
+			var vm=new Vue({
+				el:'#test',
+				data:{
+					username:"lian",
+					password:"123"
+				},
+				methods:{
+					testFun1:function(){
+						alert("test1");
+						return "I am test1";
+					},
+					testFun2:function(){
+						alert("test2");
+						return "I am test2";
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

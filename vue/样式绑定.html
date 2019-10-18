@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>样式绑定</title>
+		<script type="text/javascript" src="js/vue.min.js" ></script>
+		<style type="text/css">
+			.static{
+				background: gray;
+			}
+			.active{
+				background: green;
+			}
+			.error{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="test">
+			<!-- {active:isActive,error:isError}对象      键：要绑定的类，值：是否绑定。 多个键值对可绑定多个类 -->
+			<button class="static" v-bind:class="{active:isActive,error:isError}" v-on:click="fun()">test</button>
+			<button class="static" v-bind:class="classObj">test</button>
+			<button class="static" v-bind:class="classArray">test</button>
+			<button class="static" v-bind:class="['active',isError?'error':'']">test</button><!--记得加引号-->
+			<button class="static" v-bind:style="{color:testColor}">test</button><!--内联样式-->
+			<div v-bind:style="styleObj"></div><!--绑定一个对象，也可以通过数组绑定多个对象-->
+		</div>
+		<script type="text/javascript">
+			var vm=new Vue({
+				el:"#test",
+				data:{
+					isActive:true,
+					isError:false,
+					classArray:['active','error'],
+					testColor:'yellow',
+					styleObj:{
+						width:'100px',
+						height:'100px',
+						background:'blue'
+					}
+				},
+				methods:{
+					fun:function(){
+						this.isError=!this.isError;
+					}
+				},
+				computed:{
+					classObj:function(){
+//						this.isActive=!this.isActive;
+//						this.isError=!this.isError;
+						return {
+							active:this.isActive,
+							error:this.isError
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

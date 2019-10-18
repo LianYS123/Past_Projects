@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>插入视频</title>
+	</head>
+	<body>
+		<p>
+			<embed src="" type="" /><!--这个引入外部flash-->
+			<iframe height=498 width=510 src='http://player.youku.com/embed/XNDE2Njg4MjYwMA==' frameborder=0 'allowfullscreen'></iframe>
+		</p>
+		<p>
+			<!--
+				src:资源地址
+				controls：显示控件
+				loop：循环
+				autoplay:自动播放
+				</track>:字幕
+				<source />:资源，播放第一个适配的视频
+			-->
+			<video id="v" width="500" height="" controls>
+				<source src="video/Atoms - 5205.mp4"/>
+				<track></track>
+			</video>
+		</p>
+		<p>
+			<button id="btn">toggle</button>
+		</p>
+	</body>
+	<script type="text/javascript">
+		var v = document.getElementById("v");
+		//提供了事件和方法
+		v.onpause = function(){
+			alert("你暂停了视频");
+		}
+		v.onplay = function(){
+			alert("视频开始播放");
+		}
+		var status = 1;
+		var btn = document.getElementById("btn");
+		btn.onclick = function(){
+			if(status == 1){
+				status = 0;
+				v.play();
+			}else{
+				status = 1;
+				v.pause();
+			}
+		}
+		
+	</script>
+</html>

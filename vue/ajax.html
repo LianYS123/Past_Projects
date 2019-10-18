@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ajax</title>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript" src="js/vue-resource.min.js"></script>
+	</head>
+	<body>
+		<div id="test">
+			<p>
+				<button @click="get">get</button>
+				<button @click="post">post</button>
+			</p>
+			<p>
+				<p>name:{{name}}</p>
+				<p>sex:{{sex}}</p>
+			</p>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#test",
+				data:{
+					name:'',
+					sex:''
+				},
+				methods:{
+					get:function(){
+						/*如果需要传递数据，可以使用 this.$http.get('get.php',{params : jsonData}) 格式，第二个参数 jsonData 就是传到后端的数据*/
+						this.$http.get('files/test.json').then(function(res){
+							this.name=res.body.name;
+							this.sex=res.body.sex;
+						},function(){
+							alert('error');
+						});
+					},
+					post:function(){
+						/*post 发送数据到后端，需要第三个参数 {emulateJSON:true}*/
+						/*emulateJSON 的作用： 如果Web服务器无法处理编码为 application/json 的请求，你可以启用 emulateJSON 选项。*/
+						this.$http.post('files/test.json',{emulateJSON:true}).then(function(res){
+							this.name=res.body.name;
+							this.sex=res.body.sex;
+						},function(res){
+							alert('post error! status:'+res.status);
+						})
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

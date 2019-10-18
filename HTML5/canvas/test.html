@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>哆啦A梦</title>
+		<style type="text/css">
+			#mycanvas{
+				border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="500px" height="300px"></canvas>
+	</body>
+	<script type="text/javascript" src="../js/inheritance.js" ></script>
+	<script type="text/javascript">
+		var c = document.getElementById("mycanvas");
+		var cxt = c.getContext("2d");
+		var img = new Image();
+		img.src = "../img/dlam_game.png"
+		img.onload = function(){
+			cxt.drawImage(img,0,0,25,38,100,200,25,38);
+		}
+		
+
+	</script>
+</html>

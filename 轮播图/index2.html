@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/init.css"/>
+		<link rel="stylesheet" type="text/css" href="css/rotationChart.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ann.css"/>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<title>轮播图2</title>
+		<script type="text/javascript">
+			$(function(){
+				var outer=$(".RotationChart .rcContent>ul");//注意：用position的话，这个盒子是最大的那个盒子
+				var imgDiv=$(".RotationChart .rcContent ul div.imgDiv").get(0);
+				var timer=setInterval(scroll,1);
+				var timeo1=null;
+				var timeo2=null;
+				var left=0;
+				/*var timeo=null;
+				var timeo2=null;*/
+				
+				$(".RotationChart div.navDot ul>li").click(function(){
+					clearInterval(timer);//点击后清除计时器
+					clearTimeout(timeo2);//防止存在正在等待中的计时器
+					clearTimeout(timeo1);
+					//点击后导航点事件
+					var i=$(".RotationChart div.navDot ul>li").index(this);
+					$(".RotationChart div.navDot ul>li").removeClass("navDotSelected");
+					$(this).addClass("navDotSelected");
+					//点击后重新定义图片位置
+//					outer.scrollleft(i*imgDiv.offsetWidth);
+					outer.addClass("pchange");
+					left=i*imgDiv.offsetWidth;
+					outer.css("left",-left+"px");
+					
+					timeo1=setTimeout(function(){
+						outer.removeClass("pchange");
+						timer=setInterval(scroll,1);//等待两秒重启计时器
+					},3000);
+					
+				});
+				
+				function scroll(){
+//					outer.scrollleft(outer.scrollleft()+2);
+					left+=2;
+					outer.css("left",-left+"px");
+//					console.log(outer.scrollleft()%imgDiv.offsetWidth);
+					if(left%imgDiv.offsetWidth==0){
+//						console.log(outer.scrollleft()/imgDiv.offsetWidth);
+						//导航点同步
+						var index=left/imgDiv.offsetWidth;
+						$(".RotationChart div.navDot ul>li").removeClass("navDotSelected");
+						$(".RotationChart div.navDot ul>li").eq((index+5)%5).addClass("navDotSelected");
+						
+						//滚动间停
+						clearInterval(timer);
+						timeo2=setTimeout(function(){
+							timer=setInterval(scroll,1);
+						},1000);
+					}
+					if(left>imgDiv.offsetWidth*5){
+						left=0;
+						outer.css("left",-left+"px");
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="RotationChart">
+			<div class="navDot">
+				<ul>
+					<li class="navDotSelected"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div class="rcContent">
+				<ul>
+					<li>
+						<div class="imgDiv">
+							<img src="img/1.jpg"/>
+						</div>
+					</li>
+					<li>
+						<div class="imgDiv">
+							<img src="img/2.jpg"/>
+						</div>
+					</li>
+					<li>
+						<div class="imgDiv">
+							<img src="img/3.jpg"/>
+						</div>
+					</li>
+					<li>
+						<div class="imgDiv">
+							<img src="img/4.jpg"/>
+						</div>
+					</li>
+					<li>
+						<div class="imgDiv">
+							<img src="img/5.jpg"/>
+						</div>
+					</li>
+					<li>
+						<div class="imgDiv">
+							<img src="img/1.jpg"/>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

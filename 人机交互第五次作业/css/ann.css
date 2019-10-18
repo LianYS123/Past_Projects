@@ -1,0 +1,45 @@
+.wc{
+	animation: wc 0.25s linear 1;
+	animation-fill-mode: forwards;
+}
+.fo{
+	box-shadow: 3px 3px 3px 3px gray;
+}
+
+.pchange{
+	transition: left 1s linear;
+}
+.annrc{
+	animation: rc 10s linear infinite;
+}
+.gray{
+	filter: grayscale(100%);
+	filter: #e6e7e9;
+}
+@keyframes rc{
+	0%:{
+		left: 0;
+	}
+	25%:{
+		left: -800px;
+	}
+	50%:{
+		left: -1600px;
+	}
+	75%:{
+		left: -3200px;
+	}
+	100%{
+		left: -4000px;
+	}
+}
+@keyframes wc{
+	from{
+		width: 180px;
+		height: 240px;
+	}
+	to{
+		width:192px;
+		height: 256px;
+	}
+}

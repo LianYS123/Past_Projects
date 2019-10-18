@@ -1,0 +1,18 @@
+{
+	"芭蕾":{
+		"videoUrl":"video/Ballet - 373.mp4",
+		"depClass":""
+	},
+	"原子":{
+		"videoUrl":"video/Atoms - 5205.mp4",
+		"depClass":"filter_0px"
+	},
+	"黑色":{
+		"videoUrl":"video/Black - 13495.mp4",
+		"depClass":"filter_0px"
+	},
+	"雪":{
+		"videoUrl":"video/Snowflakes - 6310.mp4",
+		"depClass":"filter_0px"
+	}
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>underscore使用</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript" src="../js/underscore.js"></script>
+	<script type="text/javascript">
+		//返回随机样本
+		/*var arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		var result = _.sample(arr,5);//5个随机样本
+		console.log(result);*/
+		//乱序数组
+		/*var arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		var result = _.shuffle(arr);
+		console.log(result);*/
+		
+		//遍历数组
+		/*var arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		_.each(arr,function(item){
+			console.log(item);
+		})*/
+		
+		//查找符合条件的项
+		/*var arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		var result = _.find(arr,function(num){//找到第一个的偶数
+			if(num%2==0){
+				return true;
+			}
+			return false;
+		})
+		console.log(result);*/
+		
+		//返回所有符合条件的项
+		/*var arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		var result = _.filter(arr,function(num){//找到所有符偶数
+			if(num%2==0){
+				return true;
+			}
+			return false;
+		})
+		console.log(result);*/
+		
+		//查找数组中是否有某项
+		/*var arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		var result = _.contains(arr,5);
+		console.log(result);*/
+		
+		//返回数组中的最大，最小值
+		/*var arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		var result1 = _.max(arr);
+		var result2 = _.min(arr);
+		console.log(result1);
+		console.log(result2);*/
+		
+		//按某属性排序，只能用于数组里面有对象的
+		/*var arr = [
+			{"name":"小明","yvwen":43,"shuxue":24,"yingyv":23},
+			{"name":"小红","yvwen":83,"shuxue":42,"yingyv":85},
+			{"name":"小蓝","yvwen":16,"shuxue":34,"yingyv":44},
+			{"name":"小绿","yvwen":75,"shuxue":67,"yingyv":56}
+		];
+		var result = _.sortBy(arr,"yvwen");//根据语文排序
+		console.log(result);*/
+		
+		//计数,返回一个对象
+		/*var arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		var result = _.countBy(arr,function(num){
+			if(num%2 == 0){
+				return "偶数";
+			}
+			else return "基数";
+		});
+		console.log(result);*/
+		
+		//统计一个对象中键的个数
+		/*var obj = {"a":1,"b":2,"c":3};
+		var result = _.size();
+		console.log(obj);*/
+		
+		//删除数组中的某一项，一个不留
+		/*var arr = [1,2,2,2,2,2,3,4,5,6,7];
+		result = _.without(arr,2);
+		console.log(result);*/
+		
+		//并集，并去重
+		/*var arr1 = [1,2,3,4,5];
+		var arr2 = [2,3,4,5,6];
+		var arr3 = [3,4,5,6,7];
+		var result = _.union(arr1,arr2,arr3);
+		console.log(result);*/
+		
+		//交集
+		/*var arr1 = [1,2,3,4,5];
+		var arr2 = [2,3,4,5,6];
+		var arr3 = [3,4,5,6,7];
+		var result = _.intersection(arr1,arr2,arr3);
+		console.log(result);*/
+		
+		//差集，即从arr1中出去arr2中有的元素
+		/*var arr1 = [1,2,3,4,5];
+		var arr2 = [3,4,5,6,7];
+		var result = _.difference(arr1,arr2);
+		console.log(result);*/
+		
+		//去重
+		/*var arr = [1,2,3,3,3,4,4,5,5,6,7];
+		var result = _.uniq(arr);
+		console.log(result);*/
+		
+		//返回一个整数区间的数组
+		var result = _.range(3,20);//返回[3,20)
+		console.log(result);
+	</script>
+</html>

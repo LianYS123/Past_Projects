@@ -1,0 +1,123 @@
+.nav{
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 100%;
+	height: 85px;
+	border-top: 5px solid black;
+	margin-top: 10px;
+}
+.nav ul.navUl{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.nav ul.navUl li{
+	width: 200px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	font-size: 20px;
+	border-top-left-radius: 60px;
+	border-bottom-right-radius: 60px;
+}
+.nav ul.navUl li:hover{
+	cursor: pointer;
+	background: black;
+	color: white;
+}
+.selectedNav{
+	background: black;
+	color: white;
+}
+.content{
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+	width: 1500px;
+	overflow: hidden;
+}
+.content ul{
+	position: relative;
+	left: 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 10000px;
+}
+.content ul>li{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 1550px;
+	
+}
+.content ul>li .movie{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 200px;
+	padding: 10px;
+	margin: 10px;
+}.content ul>li .movie{
+	cursor: pointer;
+}
+.content ul>li .movie .movieImage{
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	width: 180px;
+	height: 240px;
+	overflow: hidden;
+}
+.content ul>li .movie .movieImage>img{
+	transition: filter 0.2s linear;
+	width: 180px;
+	height: 240px;
+}
+.content ul>li .movie .movieInfo{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 180px;
+	height: 56px;
+	background: #f8f8f8;
+}
+.content ul>li .movie .movieInfo>ul{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	height: 40px;
+}
+.content ul>li .movie .movieInfo>ul>li{
+	width: 155px;
+}
+.content ul>li .movie .movieInfo>ul>li:nth-child(1){
+	font-size: 14px;
+}
+.content ul>li .movie .movieInfo>ul>li:nth-child(2){
+	font-size: 13px;
+	color: #999;
+}
+.stop{
+	display: flex;
+	justify-content: center;
+}
+.stop div{
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	font: 20px/50px 微软雅黑;
+	background-color: black;
+	color: white;
+	/*text-shadow: 3px 3px 8px white;*/
+	margin: 40px;
+}
+.stop div:hover{
+	cursor: pointer;
+	box-shadow: 3px 3px 10px blueviolet;
+	background-color: blueviolet;
+}

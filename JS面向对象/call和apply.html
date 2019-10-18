@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>call和apply</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function fun(a,b,c){
+			alert(a+b+c);
+			alert(this.age);
+		}
+		var obj = {
+			name:"lian",
+			age:"100"
+		}
+		fun.call(obj,10,20,30);//以obj为上下文执行
+		fun.apply(obj,[10,20,30]);//以obj为上下文执行
+		//两个函数的区别体现在参数上，call参数直接列在后面，apply必须传数组
+		//可以使用apply求一个数组的最大值
+		var arr = [1,3,535,134,512,353,513];
+		alert(Math.max.apply(window,arr))
+	</script>
+</html>

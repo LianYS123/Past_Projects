@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>组件</title>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/test.css"/>
+		<style type="text/css">
+	
+		</style>
+	</head>
+	<body>
+		<div id="test">
+			<compo></compo>
+			<compo2></compo2>
+			<compo3 imageSrc='<img src="img/movie1.jpg"/>' info1='test1' info2='test2'></compo3>
+			<input v-model="msg" /><!--将输入的的内容绑定到msg中-->
+			<child v-bind:message='msg'></child><!--message属性绑定到msg中-->
+		</div>
+		<script type="text/javascript">
+			/*自定义组件*/
+			
+			/*全剧组件*/
+			Vue.component('compo',{
+				template:'<p class="testStyle">自定义组件</p>'
+			});
+			//传递参数  注意：这种申明要在定义根节点之间定义
+			Vue.component('compo3',{
+				props:['imageSrc','info1','info2'],
+				template:'<div class="movie"> <div class="movieImage"> {{imageSrc}} </div> <div class="movieInfo"> <ul> <li>{{info1}}</li> <li>{{info2}}</li> </ul> </div> </div>'
+			});
+			//动态prop
+			Vue.component('child',{
+				props:['message'],
+				template:'<p class="{{message}}">{{message}}</p>'
+			});
+			//prop验证
+			//prop 是一个对象而不是字符串数组时，它包含验证要求：
+			Vue.component('example', {
+			  props: {
+			    // 基础类型检测 （`null` 意思是任何类型都可以）
+			    propA: Number,
+			    // 多种类型
+			    propB: [String, Number],
+			    // 必传且是字符串
+			    propC: {
+			      type: String,
+			      required: true
+			    },
+			    // 数字，有默认值
+			    propD: {
+			      type: Number,
+			      default: 100
+			    },
+			    // 数组／对象的默认值应当由一个工厂函数返回
+			    propE: {
+			      type: Object,
+			      default: function () {
+			        return { message: 'hello' }
+			      }
+			    },
+			    // 自定义验证函数
+			    propF: {
+			      validator: function (value) {
+			        return value > 10
+			      }
+			    }
+			  }
+			 })
+			
+			var vm = new Vue({
+				el:'#test',
+				data:{
+					msg:'message'
+				},
+				/*局部组件*/
+				components:{
+					compo2:{
+						template:'<h1>局部组件</h1>'
+					}
+				}
+			});
+			
+			$(function(){
+				$(".movie .movieImage img").attr("src","img/movie1.jpg");
+			})
+			
+		</script>
+	</body>
+</html>

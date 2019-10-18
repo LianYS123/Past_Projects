@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>函数的上下文(函数中的this到底是什么)</title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		var obj = {
+			xingming:"Lian",
+			sayhello:function(){
+				alert("你好我是"+this.xingming);
+			}
+		}
+		//函数的上下文取决于如何调用
+		//obj.sayhello();//输出你好我是Lian，this是obj
+		var fn = obj.sayhello;
+		fn();//你好我是undefined
+		var xingming = "lalala";
+		fn();//输出  你好我是lalala
+		
+		
+		//直接写结论：
+		/*
+		 
+		 * 
+		 * 1.函数用圆括号调用，函数的上下文是window对象
+		 * 	全局变量是window对象的属性，函数中的变量不是任何对象的属性，他存放在堆内存中
+		 * 2.函数如果作为一个对象的方法，对象打点调用，上下文是调用它的对象
+		 * 3.函数是事件处理函数，函数的上下文就是发出这个事件的对象
+		 * 4.定时器调用函数，this是window对象
+		 * 	通常会备份上下文。。。
+		 * 5.数组中存放的函数，被数组索引调用，this是这个数组*/
+		
+		/*
+		 函数
+		 
+		 * 函数中 arguments是类数组对象，所以this永远不是函数自己
+		 *  在函数内部，可以使用arguments.callee得到函数自身
+		 *  arguments.length是实参个数
+		 * 函数的length取决于形参列表，更存传进来的实参没关系（函数的length是形参的个数）*/
+	</script>
+</html>

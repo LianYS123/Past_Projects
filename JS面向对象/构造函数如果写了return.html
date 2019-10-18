@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>构造函数如果写了return</title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		function Fun(name,age){
+			this.name = name;
+			return 1;
+			this.age = age;
+		}
+		function Fun2(name,age){
+			this.name = name;
+			this.age = age;
+			return Math;
+		}
+		//如果返回的是基本类型值，会被忽视，但是仍然会打断函数执行。
+		//如果返回引用类型值，会覆盖生成的对象。
+	</script>
+</html>

@@ -1,0 +1,149 @@
+.header{
+	display: flex;
+	justify-content: flex-end;
+	height: 48px;
+	align-items: flex-start;
+	/*border-bottom: 1px solid gainsboro;*/
+}
+.SJHeader{
+	display: none;
+}
+.header .option{
+	display: flex;
+	justify-content: space-around;
+	width: 360px;
+	font-size: 13px;
+	line-height: 25px;
+	font-weight: 700;
+	padding-top: 15px;
+}
+.header .option a{
+	color: #000000;
+	text-decoration: underline;
+	
+}
+
+.header .option a:hover{
+	color: blue;
+}
+
+/*.header .option a:visited{
+	color: red;
+}*/
+.moreDiv{
+	width: 100px;
+	height: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding-top: 15px;
+	/*background-color: whitesmoke;*/
+}
+.toggleColor{
+	background-color: whitesmoke;
+}
+.more{
+	width: 80px;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+.more:hover{
+	
+}
+.more li:first-child{
+	width: 70px;
+	height: 25px;
+	text-align: center;
+	background: blue;
+}
+.more li:not(:first-child){
+	width:60px;
+	height: 60px;
+	display: none;
+	border: 1px solid;
+}
+.more li:first-child>a{
+	color: white;
+	line-height: 25px;
+}
+.more li{
+	
+}
+.more li a{
+	font-size: 13px;
+}
+.SJContent{
+	display: none;
+}
+.content .imageDiv{
+	display: flex;
+	height: 180px;
+	justify-content: center;
+	align-items: center;
+}
+.content .imageDiv img{
+	width: 285px;
+	height: 140px;
+}
+.content .inputDiv{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+}
+.content .inputDiv .text{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 550px;
+	height: 34px;
+	border: 1px solid;
+}
+.content .inputDiv .text input[type=text]{
+	width: 530px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+}
+.content .inputDiv .button input[type=submit]{
+	width: 100px;
+	height: 34px;
+	color: white;
+	background: blue;
+}
+.footer{
+	position: fixed;
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom: 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 40px;
+}
+.footer ul{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.footer ul li{
+	font-size: 12px;
+	color: grey;
+}
+.footer ul>li>a{
+	font-size: 12px;
+	text-decoration: underline;
+	color: grey;
+}
+.footer ul.aboutBd{
+	width: 400px;
+}
+.footer ul.others{
+	width: 520px;
+}

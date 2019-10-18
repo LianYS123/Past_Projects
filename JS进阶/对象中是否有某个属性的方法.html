@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>对象中是否有某个属性</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var obj = {
+			"name":"lian",
+			"age":10,
+			"sex":"nan"
+		}
+		//方法一:
+		/*var result1 = false;
+		if(obj.name){
+			result1 = true;
+		}
+		console.log(result1 ? "对象中有这个属性" : "对象中没有这个属性");
+		//存在缺陷，如果属性值为0或none，false等
+		obj.age = 0;
+		var result2 = false
+		if(obj.age){
+			result2 = true;
+		}
+		console.log(result2 ? "对象中有这个属性" : "对象中没有这个属性");*/
+		
+		//方法二：
+		/*if("name" in obj)console.log("name属性在 obj中");
+		//缺陷,Object.prototype.heihei中的属性也被认为在obj中，原型链中的属性也会被查出来
+		Object.prototype.heihei = 444;
+		if("heihei" in obj)console.log("heihei属性在 obj中");*/
+		
+		//方法三：
+		if(obj.hasOwnProperty("name"))console.log("name属性在 obj中");
+		//最可靠的方法
+		Object.prototype.heihei = 444;
+		if(obj.hasOwnProperty("heihei"))console.log("heihei属性在 obj中");
+		else console.log("heihei属性不在 obj中");
+	</script>
+</html>

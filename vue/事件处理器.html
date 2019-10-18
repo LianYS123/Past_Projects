@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件处理器</title>
+		<script type="text/javascript" src="js/vue.min.js" ></script>
+	</head>
+	<body>
+		<div id="test">
+			<p>这个按钮被点击了{{count}}次</p>
+			<button v-on:click="count++">click me</button><!--事件监听使用v-on指令 -->
+			<button v-on:click="fun">click me</button><!--可以直接绑定一个方法 -->
+			<button v-on:click="say('hello')">click me</button><!--使用内联js -->
+			<p></p>
+			
+			
+			<!--事件修饰符-->
+			<!-- 阻止单击事件冒泡 -->
+			<a href="#" v-on:click.stop="test">阻止单击事件冒泡 </a>
+			<!-- 提交事件不再重载页面 -->
+			<form v-on:submit.prevent="test"></form>
+			<!-- 修饰符可以串联  -->
+			<a href="#" v-on:click.stop.prevent="test">修饰符可以串联</a>
+			<!-- 只有修饰符 -->
+			<form v-on:submit.prevent></form>
+			<!-- 添加事件侦听器时使用事件捕获模式 -->
+			<div v-on:click.capture="test">添加事件侦听器时使用事件捕获模式</div>
+			<!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 -->
+			<div v-on:click.self="test">只当事件在该元素本身（而不是子元素）触发时触发回调</div>
+			
+			<!-- click 事件只能点击一次，2.1.4版本新增 -->
+			<a v-on:click.once="test" href="#">只能点一次</a>
+			<p></p>
+			
+			
+			<!--按键修饰符-->
+			<button v-on:keyup.13="test2">按键修饰符</button><!-- 只有在 keyCode 是 13 时调用 vm.test2() -->
+			<!--记住所有的 keyCode 比较困难，所以 Vue 为最常用的按键提供了别名：-->
+			<button v-on:keyup.enter="test2">enter</button>
+			<button @keyup.space="test2">space</button><!--缩写-->
+			<p><!-- Alt + C -->
+			<input @keyup.alt.67="clear" v-model="message">
+			<!-- Ctrl + Click -->
+			<div @click.ctrl="doSomething">Do something</div>
+			</p>
+			<!--注意：给指定元素绑定的事件只有获得焦点是有效-->
+			<!--
+				全部的按键别名：
+
+				.enter
+				.tab
+				.delete (捕获 "删除" 和 "退格" 键)
+				.esc
+				.space
+				.up
+				.down
+				.left
+				.right
+				.ctrl
+				.alt
+				.shift
+				.meta
+			-->
+			
+		</div>
+		<script type="text/javascript">
+			var vm=new Vue({
+				el:'#test',
+				data:{
+					count:0,
+					message:'hello'
+				},
+				methods:{
+					fun:function(){
+						this.count++;
+					},
+					say:function(word){
+						alert(word);
+					},
+					test:function(){
+						alert("事件修饰符");
+					},
+					test2:function(){
+						alert("按键修饰符");
+					},
+					clear:function(){
+						alert('clear');
+						this.message='';
+					},
+					doSomething:function(){
+						alert('Do something')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

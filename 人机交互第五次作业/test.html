@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<title>test</title>
+		<style type="text/css">
+			.outer{
+				position: relative;
+				float: left;
+				width: 100px;
+				height: 100px;
+				margin: 20px;
+				background: red;
+				
+				/*flex居中不能使得在内部元素变化后不影响布局*/
+				/*display: flex;
+				justify-content: center;
+				align-items: center;*/
+			}
+			.inner{
+				width: 60px;
+				height: 60px;
+				background: blue;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				
+				transition: width 1s,height 1s;
+			}
+			.change{
+				width: 140px;
+				height: 140px;
+			}
+		</style>
+		<script>
+			$(function(){
+				$(".inner").hover(function(){
+					$(this).addClass("change");
+				},function(){
+					$(this).removeClass("change");
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="inner"></div>
+		</div>
+		<div class="outer">
+			<div class="inner"></div>
+		</div>
+		<div class="outer">
+			<div class="inner"></div>
+		</div>
+	</body>
+</html>

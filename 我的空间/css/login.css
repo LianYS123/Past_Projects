@@ -1,0 +1,64 @@
+body{
+	background-image: url(../img/background.jpg);
+}
+.wrap{
+	display: flex;
+	justify-content: space-between;
+	width: 800px;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 200px;
+}
+.title{
+	overflow: hidden;
+	text-align: center;
+	width: 200px;
+	color: white;
+}
+.title span:first-child{
+	font-size: 40px;
+	font-family: "华文新魏";
+	line-height: 40px;
+}
+.title span:nth-child(3){
+	font-size: 20px;
+	font-family: "华文新魏";
+}
+.login{
+	width: 300px;
+	height: 200px;
+	text-align: center;
+	background-color: white;
+	/*float: right; 注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。*/
+}
+.login span:first-child{
+	font-size: 20px;
+}
+.login ul{
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	height: 180px;
+}
+.login li.text{
+	width: 220px;
+	border: 1px solid;
+	height: 30px;
+	line-height: 30px;
+}
+.login li.text input{
+	width: 195px;
+}
+.submit_login{
+	width: 220px;
+	height: 30px;
+	font-size: 16px;
+	background: skyblue;
+}
+.submit_login:hover{
+	background: deepskyblue;
+	cursor: pointer;
+}

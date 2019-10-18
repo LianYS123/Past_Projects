@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>hello</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ann.css"/>
+		<style type="text/css">
+			
+		</style>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.content>ul>li>div>.movieImage>img').addClass('gray');
+				
+				var outer=$(".content>ul");//注意：用position的话，这个盒子是最大的那个盒子
+				var imgDiv=$(".content ul li").get(0);
+				outer.addClass("pchange");
+				var timer=setInterval(scroll,3000);
+				var timeo1=null;
+				var timeo2=null;
+				var timeo3=null;
+				var left=0;
+				
+				/*var timeo=null;
+				var timeo2=null;*/
+				
+				$(".nav ul.navUl>li").click(function(){
+					clearInterval(timer);//点击后清除计时器
+					clearTimeout(timeo2);//防止存在正在等待中的计时器
+					clearTimeout(timeo1);
+					clearTimeout(timeo3);
+					//点击后导航点事件
+					var i=$(".nav ul.navUl>li").index(this);
+					$(".nav ul.navUl>li").removeClass("selectedNav");
+					$(this).addClass("selectedNav");
+					//点击后重新定义图片位置
+//					outer.scrollleft(i*imgDiv.offsetWidth);
+					outer.addClass("pchange");
+					left=i*imgDiv.offsetWidth;
+					outer.css("left",-left+"px");
+					
+					timeo1=setTimeout(function(){
+						timer=setInterval(scroll,3000);//等待1秒重启计时器
+					},1000);
+					
+				});
+				
+				function scroll(){
+					console.log(left);
+					left+=imgDiv.offsetWidth;
+					outer.css("left",-left+"px");
+					var index=left/imgDiv.offsetWidth;
+					
+					timeo3=setTimeout(function(){
+						$(".nav ul.navUl>li").removeClass("selectedNav");
+						$(".nav ul.navUl>li").eq((index+3)%3).addClass("selectedNav");
+					},1000);
+					if(left>imgDiv.offsetWidth*3){
+						outer.removeClass("pchange");
+						left=0;
+						outer.css("left",-left+"px");
+						timeo2=setTimeout(function(){
+							outer.addClass("pchange");
+							left+=imgDiv.offsetWidth;
+							outer.css("left",-left+"px");
+						},30);
+						
+					}
+				}
+				
+				//图片动画
+				$(".content>ul>li>div>.movieImage>img").hover(function(){
+					$(this).addClass("wc");
+					$(this).removeClass("gray");
+				},function(){
+					$(this).removeClass("wc");
+					$(this).addClass("gray");
+				});
+				$(".content>ul>li>div.movie").hover(function(){
+					$(this).find(".movieInfo>ul>li:nth-child(1)").css("color","#00be06");
+				},function(){
+					$(this).find(".movieInfo>ul>li:nth-child(2)").css("color","#999");
+					$(this).find(".movieInfo>ul>li:nth-child(1)").css("color","black");
+				});
+				$(".stop .stopDiv").click(function(){
+					clearInterval(timer);
+					clearTimeout(timeo2);
+					clearTimeout(timeo1);
+					clearTimeout(timeo3);
+				});
+				$(".stop .startDiv").click(function(){
+					timeo1=setTimeout(function(){
+						timer=setInterval(scroll,3000);//等待1秒重启计时器
+					},500);
+				})
+				
+				/*var timeout=setTimeout(function(){
+					clearInterval(timer);
+				},2000);*/
+			});
+		</script>
+	</head>
+	<body>
+		<div class="nav">
+			<ul class="navUl">
+				<li class="selectedNav">最近热播</li>
+				<li>VIP电影榜</li>
+				<li>免费电影榜</li>
+			</ul>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie1.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>似水流年</li>
+								<li>唱京剧三兄弟</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie1.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>似水流年</li>
+								<li>唱京剧三兄弟</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie1.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>似水流年</li>
+								<li>唱京剧三兄弟</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie1.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>似水流年</li>
+								<li>唱京剧三兄弟</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie1.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>似水流年</li>
+								<li>唱京剧三兄弟</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					
+				</li>
+				
+				
+				<li>
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie2.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>决战异世界</li>
+								<li>安志杰大战外星人</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie2.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>决战异世界</li>
+								<li>安志杰大战外星人</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie2.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>决战异世界</li>
+								<li>安志杰大战外星人</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie2.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>决战异世界</li>
+								<li>安志杰大战外星人</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie2.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>决战异世界</li>
+								<li>安志杰大战外星人</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					
+				</li>
+				
+				
+				<li>
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie3.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>阿布格莱布男孩</li>
+								<li>美军虐奴事件改编</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie3.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>阿布格莱布男孩</li>
+								<li>美军虐奴事件改编</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie3.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>阿布格莱布男孩</li>
+								<li>美军虐奴事件改编</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie3.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>阿布格莱布男孩</li>
+								<li>美军虐奴事件改编</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie3.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>阿布格莱布男孩</li>
+								<li>美军虐奴事件改编</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					
+				</li>
+				
+				<li>
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie1.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>似水流年</li>
+								<li>唱京剧三兄弟</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie1.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>似水流年</li>
+								<li>唱京剧三兄弟</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie1.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>似水流年</li>
+								<li>唱京剧三兄弟</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie1.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>似水流年</li>
+								<li>唱京剧三兄弟</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="movie">
+						
+						<div class="movieImage">
+							<img src="img/movie1.jpg"/>
+						</div>
+						
+						<div class="movieInfo">
+							<ul>
+								<li>似水流年</li>
+								<li>唱京剧三兄弟</li>
+							</ul>
+						</div>
+						
+					</div>
+					
+					
+				</li>				
+				
+			</ul>
+		</div>
+		<div class="stop">
+			<div class="stopDiv">
+				Stop
+			</div>
+			<div class="startDiv">
+				Start
+			</div>
+		</div>
+	</body>
+</html>
